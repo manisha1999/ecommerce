@@ -1,0 +1,31 @@
+{% extends 'blog/basic.html' %}
+{% block css %}{% endblock %}
+  {% block body %}
+   <div class="container">
+       <div class="row my-2">
+       {% for i in myposts %}
+
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{i.head0}}</strong>
+          <h3 class="mb-0">{{i.title}}</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">{{i.head1}}</p>
+          <a href="blogpost/{{i.post_id}}" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+
+<img src='/media/{{i.thumbnail}}'><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></img>
+        </div>
+      </div>
+    </div>
+{% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+  </div><div class="row my-2">
+       {% endif %}
+       {% endfor %}
+   </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+ {% endblock %}

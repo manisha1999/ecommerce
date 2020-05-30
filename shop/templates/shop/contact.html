@@ -1,0 +1,36 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} Contact {% endblock %}
+{% block body %}
+<div class="container">
+    <h1>contact us regarding any query</h1>
+<form action="/shop/contact/" method="post">{% csrf_token %}
+  <div class="form-group">
+    <label for="name">Enter your name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="enter your name">
+  </div>
+  <div class="form-group">
+    <label for="name">Enter your email</label>
+    <input type="email" class="form-control" id="name" name="email" placeholder="enter your email">
+  </div>
+   <div class="form-group">
+    <label for="name">Enter your phone no</label>
+    <input type="tel" class="form-control" id="phone" name="desc" placeholder="enter your phone no">
+  </div>
+    <div class="form-group">
+    <label for="desc">How may I help you</label>
+    <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+{% endblock %}
+{% block js %}
+<script>
+{% if thank %}
+alert('Thanks for ordering with us. Your order id is {{id}}. Use it to track your order using our order tracker. ');
+document.location="/contact";
+{% endif %}
+</script>
+{% endblock %}
